@@ -7,10 +7,26 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <typeAliases>
-        <typeAlias type="com.bit.member.dto.MemberDTO" alias="memberDTO"/>
+        <typeAlias type="com.bit.model.AdminDTO" alias="adminDTO"/>
+        <typeAlias type="com.bit.model.BoardDTO" alias="boardDTO"/>
+        <typeAlias type="com.bit.model.BoardRepDTO" alias="boardRepDTO"/>
+        <typeAlias type="com.bit.model.CartDTO" alias="cartDTO"/>
+        <typeAlias type="com.bit.model.MemberDTO" alias="memberDTO"/>
+        <typeAlias type="com.bit.model.MessageDTO" alias="messageDTO"/>
+        <typeAlias type="com.bit.model.MileageDTO" alias="mileageDTO"/>
+        <typeAlias type="com.bit.model.NoticeDTO" alias="noticeDTO"/>
+        <typeAlias type="com.bit.model.NoticeRepDTO" alias="noticeRepDTO"/>
+        <typeAlias type="com.bit.model.OrderDetailsDTO" alias="orderDetailsDTO"/>
+        <typeAlias type="com.bit.model.OrderDTO" alias="orderDTO"/>
+        <typeAlias type="com.bit.model.ProductDTO" alias="productDTO"/>
+        <typeAlias type="com.bit.model.ProductPostDTO" alias="productPostDTO"/>
+        <typeAlias type="com.bit.model.QnaAnswerDTO" alias="qnaAnswerDTO"/>
+        <typeAlias type="com.bit.model.QnaQuestionDTO" alias="qnaQuestionDTO"/>
+        <typeAlias type="com.bit.model.ReviewDTO" alias="reviewDTO"/>
+        <typeAlias type="com.bit.model.WishDTO" alias="wishDTO"/>
     </typeAliases>
     <mappers>
-        <mapper resource="config/mybatis/mappers/member/MemberMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/**Mapper.xml"/>
     </mappers>
 </configuration>
 
