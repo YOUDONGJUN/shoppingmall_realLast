@@ -3,6 +3,7 @@ package com.bit.service;
 import com.bit.mapper.MileageMapper;
 import com.bit.model.MemberDTO;
 import com.bit.model.MileageDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -16,10 +17,10 @@ import java.util.Collections;
 public class MileageService {
 
 
-    //    private final String NAMESPACE = "mapper.MileageMapper";
+        private final String NAMESPACE = "mapper.MileageMapper";
     @Autowired
     MileageMapper mileageMapper;
-//    private SqlSession session;
+    private SqlSession session;
 
     public void getUserMileageStateList(HttpServletRequest request, Model model, HttpSession session) {
         MemberDTO memberDTO = (MemberDTO) session.getAttribute("userSessionData");

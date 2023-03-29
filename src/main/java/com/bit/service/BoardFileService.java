@@ -12,7 +12,7 @@ import java.util.Calendar;
 
 @Service
 public class BoardFileService {
-    public static final String IMAGE_REPO = "c:/spring/image_repo";
+    public static final String IMAGE_REPO = "D:\\image_repo";
     private final String NAMESPACE = "mapper.BoardMapper";
     private SqlSession session;
 

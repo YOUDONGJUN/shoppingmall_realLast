@@ -3,6 +3,7 @@ package com.bit.service;
 import com.bit.mapper.CartMapper;
 import com.bit.model.CartDTO;
 import com.bit.model.MemberDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,10 @@ import java.util.UUID;
 @Service
 public class CartService {
 
-    //    private final String NAMESPACE = "mapper.CartMapper";
+    private final String NAMESPACE = "mapper.CartMapper";
     @Autowired
     CartMapper cartMapper;
-//    private SqlSession session;
+    private SqlSession session;
 
     public String getMessage(int num, HttpServletRequest request) {
         String message = null; //num = mapper.reviewSave(rDto);

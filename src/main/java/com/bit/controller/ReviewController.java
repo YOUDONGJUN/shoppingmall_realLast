@@ -28,7 +28,7 @@ public class ReviewController {
         model.addAttribute("orderProductId", orderProductId);
         model.addAttribute("orderProductName", orderProductName);
 
-        return "eunbin/createReview";
+        return "myPage/createReview";
     }
 
 }

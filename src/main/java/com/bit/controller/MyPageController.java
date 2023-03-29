@@ -64,7 +64,7 @@ public class MyPageController {
         orderService.getUserOrdersDeliveryStates(request, model, session);
         orderService.getUserOrders(model, session);
 
-        return "eunbin/readOrders";
+        return "myPage/readOrders";
     }
 
     @GetMapping("readWishes")
@@ -73,7 +73,7 @@ public class MyPageController {
                              Model model,
                              HttpSession session){
         wishService.getUserWishes(model, session);
-        return "eunbin/readWishes";
+        return "myPage/readWishes";
     }
 
     @GetMapping("readMileage")
@@ -84,7 +84,7 @@ public class MyPageController {
         mileageService.getUserMileages(model, session);
         mileageService.getUserTotalMileage(model, session);
         mileageService.getUserMileageStateList(request, model, session);
-        return "eunbin/readMileage";
+        return "myPage/readMileage";
     }
 
     @GetMapping("readUnusedMileage")
@@ -95,7 +95,7 @@ public class MyPageController {
         mileageService.getUnusedUserMileages(model, session);
         mileageService.getUserTotalMileage(model, session);
         mileageService.getUserMileageStateList(request, model, session);
-        return "eunbin/readMileage";
+        return "myPage/readMileage";
     }
 
     @GetMapping("/createReview")
@@ -111,7 +111,7 @@ public class MyPageController {
         session.setAttribute("orderProductId", orderProductId);
         session.setAttribute("orderProductName", orderProductName);
 
-        return "eunbin/createReview";
+        return "myPage/createReview";
     }
 
     @PostMapping("saveReview")

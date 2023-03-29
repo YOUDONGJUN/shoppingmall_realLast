@@ -2,6 +2,7 @@ package com.bit.service;
 
 import com.bit.mapper.MemberMapper;
 import com.bit.model.MemberDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,10 @@ import java.util.UUID;
 @Service
 public class MemberService {
 
+    private final String NAMESPACE = "mapper.MemberMapper";
     @Autowired
     MemberMapper memberMapper;
+    private SqlSession session;
 
     public int user_check(HttpServletRequest request, Model model, HttpSession session) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

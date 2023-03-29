@@ -120,7 +120,7 @@
                 <li><a href="${contextPath}/product/allView">ALL</a></li>
             </ul>
             <ul>
-                <li><a href="${contextPath}/myPage/myPage">MYPAGE</a></li>
+                <li><a href="${contextPath}/myPage/myPage">MY PAGE</a></li>
                 <li>
                     <c:choose>
                         <c:when test="${loginUser == null}">

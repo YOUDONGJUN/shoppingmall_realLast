@@ -3,6 +3,7 @@ package com.bit.service;
 import com.bit.mapper.ReviewMapper;
 import com.bit.model.MemberDTO;
 import com.bit.model.ReviewDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,8 +16,11 @@ import java.util.UUID;
 
 @Service
 public class ReviewService {
+
+    private final String NAMESPACE = "mapper.ReviewMapper";
     @Autowired
     ReviewMapper reviewMapper;
+    private SqlSession session;
 
     public String reviewSave(MultipartHttpServletRequest mul,
                              HttpServletRequest request,

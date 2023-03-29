@@ -27,7 +27,7 @@ public interface ProductMapper {
 
     public ArrayList<ProductDTO> selectScoreAllProductList(@Param("s") int start, @Param("e") int end);
 
-    public ProductDTO selectAllProductDetail(@Param("p") String productId); // 상품 상세 보기
+    public ProductDTO selectAllProductDetails(@Param("p") String productId); // 상품 상세 보기
 
     public ArrayList<ReviewDTO> selectAllReviewList(@Param("p") String postId, @Param("s") int start, @Param("e") int end); // 상품 상세보기 창에서 평점들 출력
 

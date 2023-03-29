@@ -5,6 +5,7 @@ import com.bit.model.BoardDTO;
 import com.bit.model.BoardRepDTO;
 import com.bit.model.MessageDTO;
 import com.bit.session_name.MemberSessionName;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -18,10 +19,10 @@ import java.util.List;
 @Service
 public class BoardService {
 
-    //    private final String NAMESPACE = "mapper.BoardMapper";
+    private final String NAMESPACE = "mapper.BoardMapper";
     @Autowired
     BoardMapper boardMapper;
-//    private SqlSession session;
+    private SqlSession session;
 
     public void selectAllBoardList(Model model, int num) {
         int allCount = boardMapper.selectBoardCount(); // 글 총 개수 얻어오기

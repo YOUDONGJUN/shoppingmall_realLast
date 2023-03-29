@@ -15,7 +15,7 @@ public class WishController {
 
     @GetMapping("/readWishes")
     public String createReview() {
-        return "eunbin/readWishes";
+        return "myPage/readWishes";
     }
 
     @ResponseBody
@@ -30,6 +30,6 @@ public class WishController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "eunbin/readWishes";
+        return "myPage/readWishes";
     }
 }

@@ -5,6 +5,7 @@ import com.bit.model.MessageDTO;
 import com.bit.model.NoticeDTO;
 import com.bit.model.NoticeRepDTO;
 import com.bit.session_name.MemberSessionName;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -18,10 +19,10 @@ import java.util.List;
 @Service
 public class NoticeService {
 
-    //    private final String NAMESPACE = "mapper.NoticeMapper";
+    private final String NAMESPACE = "mapper.NoticeMapper";
     @Autowired
     NoticeMapper noticeMapper;
-//    private SqlSession session;
+    private SqlSession session;
 
     public void selectAllNoticeList(Model model, int num) { //num페이지 번호
         int allCount = noticeMapper.selectNoticeCount(); //글 총 개수 얻어오기

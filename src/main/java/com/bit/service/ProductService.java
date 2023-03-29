@@ -4,18 +4,22 @@ import com.bit.mapper.ProductMapper;
 import com.bit.model.CartDTO;
 import com.bit.model.QnaAnswerDTO;
 import com.bit.model.QnaQuestionDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
 import java.sql.Date;
+import java.util.Map;
 
 @Service
 public class ProductService {
 
+    private final String NAMESPACE = "mapper.ProductMapper";
     @Autowired
     ProductMapper productMapper;
+    private SqlSession session;
 
     public void productView(Model model, int num) { // 모든 상품 보기
         int allCount = productMapper.selectProductCount(); // 상품 총 개수 얻어오기
@@ -109,7 +113,7 @@ public class ProductService {
     }
 
     public void productDetail(Model model, String productId) { // 상품 상세 보기
-        model.addAttribute("productDetail", productMapper.selectAllProductDetail(productId));
+        model.addAttribute("productDetail", productMapper.selectAllProductDetails(productId));
     }
 
     public void selectAllReviewList(Model model, String productId, int num) { // 상품 상세 보기 창에서 평점들 출력
@@ -191,14 +195,14 @@ public class ProductService {
         model.addAttribute("productPost", productMapper.selectProductPost(productId));
     }
 
-    /*
+
     public void selectProductScore(Model model, String productId) {
-        String postId = mapper.selectPostId(productId);
-        int scoreCnt = mapper.selectScoreCount(postId);
-        Map<String, Object> map = mapper.selectProductScore(postId);
+        String postId = productMapper.selectPostId(productId);
+        int scoreCnt = productMapper.selectScoreCount(postId);
+        Map<String, Object> map = productMapper.selectProductScore(postId);
         map.keySet();
     }
-    */
+
     public String selectPostId(String productId) {
         return productMapper.selectPostId(productId);
     }
@@ -215,11 +219,11 @@ public class ProductService {
         System.out.println("mapper.selectFile : " + productFile);
         System.out.println("productId : " + productId);
         System.out.println("memberIdx : " + memberIdx);
-        //System.out.println(mapper.checkCart(memberIdx, productId));
-        //if(mapper.checkCart(memberIdx, productId) == 1) {
-        //	System.out.println("mapper.updateCart");
-        //	mapper.updateCart(productCounts, memberIdx, productId);
-        //}else {
+        System.out.println(productMapper.checkCart(memberIdx, productId));
+        if(productMapper.checkCart(memberIdx, productId) == 1) {
+        	System.out.println("mapper.updateCart");
+            productMapper.updateCart(productCounts, memberIdx, productId);
+        }else {
         CartDTO cartDTO = new CartDTO();
         cartDTO.setCartId(memberId + time);
         cartDTO.setCartProductId(productId);
@@ -229,6 +233,6 @@ public class ProductService {
         cartDTO.setMemberId(memberIdx);
         System.out.println("mapper.insertCart");
         productMapper.insertCart(cartDTO);
-        //}
+        }
     }
 }

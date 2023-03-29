@@ -3,6 +3,7 @@ package com.bit.service;
 import com.bit.mapper.WishMapper;
 import com.bit.model.MemberDTO;
 import com.bit.model.WishDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -14,8 +15,10 @@ import java.util.ArrayList;
 @Service
 public class WishService {
 
+    private final String NAMESPACE = "mapper.WishMapper";
     @Autowired
     WishMapper wishMapper;
+    private SqlSession session;
 
     public void getUserWishes(Model model,
                               HttpSession session

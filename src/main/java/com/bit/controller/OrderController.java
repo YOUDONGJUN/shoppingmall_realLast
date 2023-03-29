@@ -10,7 +10,7 @@ public class OrderController {
 
     @GetMapping("/readOrders")
     public String readOrders() {
-        return "eunbin/readOrders";
+        return "myPage/readOrders";
     }
 
 }

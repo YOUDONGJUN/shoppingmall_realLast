@@ -106,8 +106,8 @@ public class ProductController {
 		*/
     }
 
-    @GetMapping("updaterecommend/{productId}/{productCategory}/{productName}") // 추천하고 상품 상세 창 다시 띄우기
-    public String updaterecommend(Model model, @PathVariable String productId, @PathVariable String productCategory, @PathVariable String productName, @RequestParam(value = "num", required = false, defaultValue = "1") int num) {
+    @GetMapping("updateRecommend/{productId}/{productCategory}/{productName}") // 추천하고 상품 상세 창 다시 띄우기
+    public String updateRecommend(Model model, @PathVariable String productId, @PathVariable String productCategory, @PathVariable String productName, @RequestParam(value = "num", required = false, defaultValue = "1") int num) {
         productService.relativeProduct(model, productCategory, productName, num);
         System.out.println("ps.relativeProduct 성공");
         productService.updateRecommendCounts(productId);

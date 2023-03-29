@@ -170,7 +170,7 @@ public class MemberController implements MemberSessionName {
         orderService.getUserOrdersDeliveryStates(request, model, session);
         orderService.getUserOrders(model, session);
 
-        return "eunbin/readOrders";
+        return "myPage/readOrders";
     }
 
     @GetMapping("readWishes")
@@ -179,7 +179,7 @@ public class MemberController implements MemberSessionName {
                              Model model,
                              HttpSession session) {
         wishService.getUserWishes(model, session);
-        return "eunbin/readWishes";
+        return "myPage/readWishes";
     }
 
     @GetMapping("readMileage")
@@ -190,7 +190,7 @@ public class MemberController implements MemberSessionName {
         mileageService.getUserMileages(model, session);
         mileageService.getUserTotalMileage(model, session);
         mileageService.getUserMileageStateList(request, model, session);
-        return "eunbin/readMileage";
+        return "myPage/readMileage";
     }
 
     @GetMapping("/createReview")
@@ -206,7 +206,7 @@ public class MemberController implements MemberSessionName {
         session.setAttribute("orderProductId", orderProductId);
         session.setAttribute("orderProductName", orderProductName);
 
-        return "eunbin/createReview";
+        return "myPage/createReview";
     }
 
     @PostMapping("saveReview")
@@ -230,8 +230,8 @@ public class MemberController implements MemberSessionName {
 
     //아이디찾기
     @RequestMapping("/find_id.do")
-    public String find_id(HttpServletResponse response, @RequestParam(value = "memberEmail", required = false) String email, Model md) throws Exception {
-        md.addAttribute("id", memberService.find_id(response, email));
+    public String find_id(HttpServletResponse response, @RequestParam(value = "memberEmail", required = false) String email, Model model) throws Exception {
+        model.addAttribute("id", memberService.find_id(response, email));
         return "member/find_id";
     }
 
@@ -243,8 +243,8 @@ public class MemberController implements MemberSessionName {
 
     //비번 찾기
     @RequestMapping("/find_pw.do")
-    public String find_pw(HttpServletResponse response, @RequestParam(value = "memberId", required = false) String id, Model md) throws Exception {
-        md.addAttribute("pw", memberService.find_pw(response, id));
+    public String find_pw(HttpServletResponse response, @RequestParam(value = "memberId", required = false) String id, Model model) throws Exception {
+        model.addAttribute("pw", memberService.find_pw(response, id));
         return "member/find_pw";
     }
 

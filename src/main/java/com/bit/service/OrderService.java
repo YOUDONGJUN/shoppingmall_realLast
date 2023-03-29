@@ -3,6 +3,7 @@ package com.bit.service;
 import com.bit.mapper.OrderMapper;
 import com.bit.model.MemberDTO;
 import com.bit.model.OrderDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -15,10 +16,10 @@ import java.util.Collections;
 @Service
 public class OrderService {
 
-    //    private final String NAMESPACE = "mapper.OrderMapper";
+    private final String NAMESPACE = "mapper.OrderMapper";
     @Autowired
     OrderMapper orderMapper;
-//    private SqlSession session;
+    private SqlSession session;
 
     public void getUserOrdersDeliveryStates(HttpServletRequest request,
                                             Model model,
