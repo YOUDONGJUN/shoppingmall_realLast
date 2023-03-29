@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="realLast" />
+        <module name="Spring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="realLast" target="19" />
       <module name="ShoppingMall" target="19" />
     </bytecodeTargetLevel>
   </component>

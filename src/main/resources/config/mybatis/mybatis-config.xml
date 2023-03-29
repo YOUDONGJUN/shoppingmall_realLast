@@ -26,7 +26,15 @@
         <typeAlias type="com.bit.model.WishDTO" alias="wishDTO"/>
     </typeAliases>
     <mappers>
-        <mapper resource="config/mybatis/mappers/**Mapper.xml"/>
+        <mapper resource="config/mybatis/mappers/BoardMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/CartMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/MemberMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/MileageMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/NoticeMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/OrderMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/ProductMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/ReviewMapper.xml"/>
+        <mapper resource="config/mybatis/mappers/WishMapper.xml"/>
     </mappers>
 </configuration>
 
